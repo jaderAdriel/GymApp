@@ -33,10 +33,6 @@ public class UserService {
 
     public User insertUser(@RequestBody @Valid RegisterUserDTO registerUserDTO) {
 
-        if (userRepository.findByLogin(registerUserDTO.getLogin()).isPresent()) {
-            throw new DuplicateResourceException("login already exists!");
-        }
-
         Optional<Role> userDefaultRole = roleRepository.findByName(UserRoles.STUDENT.getRole());
 
         User newUser = registerUserDTO.toUser();

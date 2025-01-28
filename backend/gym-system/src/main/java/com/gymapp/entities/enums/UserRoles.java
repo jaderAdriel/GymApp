@@ -1,18 +1,18 @@
 package com.gymapp.entities.enums;
 
 public enum UserRoles {
-    ADMIN(1L),
-    RECEPTIONIST(2L),
-    PERSONAL_TRAINER(3L),
-    STUDENT(4L);
+    ADMIN("ADMIN"),
+    RECEPTIONIST("RECEPTIONIST"),
+    PERSONAL_TRAINER("PERSONAL_TRAINER"),
+    STUDENT("STUDENT");
 
-    final long roleId;
+    final String role;
 
-    UserRoles(long roleId) {
-        this.roleId = roleId;
+    UserRoles(String role) {
+        this.role = role;
     }
 
-    public long getRoleId() {
-        return roleId;
+    public String getRole() {
+        return role;
     }
 }

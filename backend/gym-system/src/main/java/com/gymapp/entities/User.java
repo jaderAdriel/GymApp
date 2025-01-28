@@ -1,11 +1,12 @@
 package com.gymapp.entities;
 
+import com.gymapp.dtos.user.LoginRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
+
 
 @Getter
 @Setter
@@ -35,4 +36,7 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+    public boolean isLoginCorrect(LoginRequestDTO loginRequestDTO, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(loginRequestDTO.password(), this.password);
+    }
 }

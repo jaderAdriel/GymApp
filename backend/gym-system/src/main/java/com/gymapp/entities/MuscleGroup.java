@@ -5,13 +5,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+@Entity
+@Table(name="tb_muscle_groups")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity
-@Table(name="tb_muscle_groups")
 public class MuscleGroup {
 
     @Id

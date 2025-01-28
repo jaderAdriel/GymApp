@@ -4,6 +4,7 @@ import com.gymapp.entities.pk.WorkoutPlanExercisePK;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "tb_workout_plan_exercises")
 public class WorkoutPlanExercise{
 
     @EmbeddedId

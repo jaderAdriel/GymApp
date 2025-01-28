@@ -23,10 +23,16 @@ public class User {
     private UUID id;
 
     @Column(unique = true, nullable = false)
-    private String username;
+    private String email;
+
+    @Column(unique = true, nullable = false)
+    private String login;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String name;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(

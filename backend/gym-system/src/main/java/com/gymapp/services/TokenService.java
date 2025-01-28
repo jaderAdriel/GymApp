@@ -31,7 +31,7 @@ public class TokenService {
 
     @PostMapping(name = "/login")
     public String generateToken(LoginRequestDTO request, long expiresIn) {
-        Optional<User> user = userRepository.findByUsername(request.username());
+        Optional<User> user = userRepository.findByLogin(request.login());
 
 
         if(user.isEmpty() || !user.get().isLoginCorrect(request, bCryptPasswordEncoder)) {

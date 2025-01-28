@@ -1,6 +1,5 @@
 package com.gymapp.config;
 
-import com.gymapp.entities.Role;
 import com.gymapp.entities.User;
 import com.gymapp.entities.enums.UserRoles;
 import com.gymapp.repositories.RoleRepository;
@@ -10,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.Optional;
 import java.util.Set;
 
 @Configuration
@@ -34,7 +32,7 @@ public class AdminUserConfig implements CommandLineRunner {
 
         var roleAdmin = roleRepository.findByName(UserRoles.ADMIN.getRole());
 
-        var userAdmin = userRepository.findByUsername("admin");
+        var userAdmin = userRepository.findByLogin("admin");
 
         userAdmin.ifPresentOrElse(
                 user -> {
@@ -42,7 +40,9 @@ public class AdminUserConfig implements CommandLineRunner {
                 },
                 () -> {
                     var user = new User();
-                    user.setUsername("admin");
+                    user.setEmail("admin@gmail.com");
+                    user.setName("Administrator");
+                    user.setLogin("Admin");
                     user.setPassword(passwordEncoder.encode("123"));
                     user.setRoles(Set.of(roleAdmin.get()));
                     userRepository.save(user);

@@ -33,8 +33,8 @@ public class UserService {
 
     public User insertUser(@RequestBody @Valid RegisterUserDTO registerUserDTO) {
 
-        if (userRepository.findByUsername(registerUserDTO.getUsername()).isPresent()) {
-            throw new DuplicateResourceException("Username already exists!");
+        if (userRepository.findByLogin(registerUserDTO.getLogin()).isPresent()) {
+            throw new DuplicateResourceException("login already exists!");
         }
 
         Optional<Role> userDefaultRole = roleRepository.findByName(UserRoles.STUDENT.getRole());
@@ -47,7 +47,7 @@ public class UserService {
         try {
             return userRepository.save(newUser);
         } catch (DataIntegrityViolationException e) {
-            throw new DuplicateResourceException("Username " + registerUserDTO.getUsername() + " already exists!");
+            throw new DuplicateResourceException("login " + registerUserDTO.getLogin() + " already exists!");
         }
 
     }

@@ -9,18 +9,26 @@ import jakarta.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "username")
+@EqualsAndHashCode
 public class RegisterUserDTO {
 
+    @NotNull(message = "Name is required")
+    String name;
+
     @NotNull(message = "username is required")
-    String username;
+    String email;
+
+    @NotNull(message = "username is required")
+    String login;
 
     @NotNull(message = "Password is required")
     String password;
 
     public User toUser() {
         User user = new User();
-        user.setUsername(username);
+        user.setEmail(email);
+        user.setName(email);
+        user.setLogin(login);
         user.setPassword(password);
         return user;
     }

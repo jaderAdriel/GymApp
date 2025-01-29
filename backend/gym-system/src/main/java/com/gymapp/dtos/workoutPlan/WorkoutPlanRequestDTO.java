@@ -6,17 +6,19 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class WorkoutPlanExerciseRequestDTO {
+public class WorkoutPlanRequestDTO {
+
+    String name;
 
     @NotNull
-    Long exerciseId;
+    String description;
 
     @NotNull
-    String setsDescription;
-
-    Long workoutPlanId;
+    List<WorkoutPlanExerciseRequestDTO> exercises;
 }

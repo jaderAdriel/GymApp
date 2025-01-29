@@ -12,14 +12,14 @@ public class WorkoutPlanExercise{
 
     @ManyToOne
     @MapsId("workoutPlanId")
-    @JoinColumn(name = "workout_plan_id")
+    @JoinColumn(name = "workout_plan_id", nullable = false)
     private WorkoutPlan workoutPlan;
 
     @ManyToOne
     @MapsId("exerciseId")
-    @JoinColumn(name = "exercise_id")
+    @JoinColumn(name = "exercise_id", nullable = false)
     private Exercise exercise;
 
-    private String weight;
-    private Integer sets;
+    @Column(nullable = false)
+    private String setsDescription;
 }

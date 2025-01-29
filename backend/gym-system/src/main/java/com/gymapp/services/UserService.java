@@ -31,7 +31,7 @@ public class UserService {
         this.roleRepository = roleRepository;
     }
 
-    public User insertUser(@RequestBody @Valid RegisterUserDTO registerUserDTO) {
+    public User insert(@RequestBody @Valid RegisterUserDTO registerUserDTO) {
 
         Optional<Role> userDefaultRole = roleRepository.findByName(UserRoles.STUDENT.getRole());
 

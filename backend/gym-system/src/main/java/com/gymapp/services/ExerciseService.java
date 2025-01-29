@@ -14,7 +14,7 @@ public class ExerciseService {
         this.exerciseRepository = exerciseRepository;
     }
 
-    public Exercise inserExercise(ExerciseRequestDTO exerciseRequestDTO) {
+    public Exercise insert(ExerciseRequestDTO exerciseRequestDTO) {
         Exercise newExercise = exerciseRequestDTO.toExercise();
         return exerciseRepository.save(newExercise);
     }

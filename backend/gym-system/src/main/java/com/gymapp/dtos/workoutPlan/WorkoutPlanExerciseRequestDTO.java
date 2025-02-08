@@ -1,12 +1,11 @@
 package com.gymapp.dtos.workoutPlan;
 
+import com.gymapp.entities.WorkoutPlanExercise;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -18,5 +17,12 @@ public class WorkoutPlanExerciseRequestDTO {
     @NotNull
     String setsDescription;
 
-    Long workoutPlanId;
+    long workoutPlanId;
+
+    public WorkoutPlanExercise toWorkoutPlanExercise() {
+        WorkoutPlanExercise obj = new WorkoutPlanExercise();
+
+        obj.setSetsDescription(setsDescription);
+        return obj;
+    }
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class ExerciseRequestDTO {
+public class CreateExerciseRequestDTO {
 
     @NotNull(message = "Name is required")
     String name;

@@ -1,9 +1,7 @@
 package com.gymapp.entities.pk;
 
 import jakarta.persistence.Embeddable;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -11,7 +9,13 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
 public class WorkoutPlanExercisePK implements Serializable {
+
+    @EqualsAndHashCode.Include
     private long workoutPlanId;
+
+    @EqualsAndHashCode.Include
     private long exerciseId;
 }

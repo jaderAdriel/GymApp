@@ -27,7 +27,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, String>> newUser(@RequestBody RegisterUserDTO registerUserDTO) {
-        User newUser = userService.insertUser(registerUserDTO);
+        User newUser = userService.insert(registerUserDTO);
 
         Map<String, String> content = Map.of("message", "User registered with success");
 

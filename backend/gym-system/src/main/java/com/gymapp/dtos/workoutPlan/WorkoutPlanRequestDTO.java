@@ -1,5 +1,6 @@
 package com.gymapp.dtos.workoutPlan;
 
+import com.gymapp.entities.WorkoutPlan;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class WorkoutPlanRequestDTO {
 
+    @NotNull
     String name;
 
     @NotNull
@@ -21,4 +23,12 @@ public class WorkoutPlanRequestDTO {
 
     @NotNull
     List<WorkoutPlanExerciseRequestDTO> exercises;
+
+    public WorkoutPlan toWorkoutPlan() {
+        WorkoutPlan obj = new WorkoutPlan();
+        obj.setName(name);
+        obj.setDescription(description);
+
+        return obj;
+    }
 }
